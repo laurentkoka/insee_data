@@ -61,7 +61,7 @@ Suppression globale des doublons simples | 27 169 381 (160 090 lignes supprimée
 
 #### Traitement des doublons complexes
 
-Le stockage des informations dans une base de données et une simple requête SQL montre  les doublons sont sans doute beaucoup plus nombreux. La requête suivante : 
+Le stockage des informations dans une base de données et une simple requête SQL montre que les doublons sont sans doute beaucoup plus nombreux. La requête suivante : 
 
     SELECT last_name, first_name, birth_date, COUNT(*)
     FROM records
@@ -72,7 +72,7 @@ renvoie 216 072 lignes correspondant à des personnes ayant le même nom, les m�
 
 En rajoutant un critère sur la date de décès : 
 
-    SELECT last_name, first_name, birth_date, death_date COUNT(*)
+    SELECT last_name, first_name, birth_date, death_date, COUNT(*)
     FROM records
     GROUP BY last_name, first_name, birth_date, death_date
     HAVING COUNT(*) > 1 
