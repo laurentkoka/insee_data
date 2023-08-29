@@ -6,6 +6,9 @@ Voir : https://www.insee.fr/fr/information/4769950
 
 A fin juillet 2023 (dernier fichier pris en compte: `Deces_2023_M07.csv`), les 60 fichiers mis en ligne constituaient un total de plus de 27 millions d'enregistrements (27 329 471 lignes). 
 
+Ce projet propose un certain nombre d'outils de traitement de ces fichiers INSEE. 
+A noter que les mêmes données sont disponibles sur data.gouv.fr (https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/) dans un format différent. Ce projet utilise les fichiers proposés sur le site de l'INSEE. 
+
 ### Qualité des données : doublons 
 
 Le nombre d'enregistrements uniques est en réalité inférieur de quelques centaines de milliers au nombre mentionné ci-dessus car les fichiers contiennent de nombreux doublons: 
