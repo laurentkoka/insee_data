@@ -51,24 +51,24 @@ Il a donc été procédé en trois temps :
 - étape 2 : transformation du fichier résultant en dataframe Pandas 
 - étape 3 : identification et suppression des doublons simples grâce à Pandas (même méthode que précédemment)
 
-Ceci a permis d'obtenir un fichier CSV résultant 27 169 381 enregistrements. Au total 160 090 lignes présentes deux fois ou plus ont été supprimées. Etant donné la taille des données manipulées les étapes #2 et #3 du traitement ont pris une quinzaine de minutes. 
+Ceci a permis d'obtenir un fichier CSV résultant 27 168 192 enregistrements. Au total 161 279 lignes présentes deux fois ou plus ont été supprimées. Etant donné la taille des données manipulées les étapes #2 et #3 du traitement ont pris une quinzaine de minutes. 
 
 Type de traitement | Nombre total d'enregistrements (au 31/07/2023)
 -------- | -----
 Sans traitement | 27 329 471
 Suppression des doublons simples fichier par fichier | 27 209 138 (120 333 lignes supprimées)
-Suppression globale des doublons simples | 27 169 381 (160 090 lignes supprimées)
+Suppression globale des doublons simples | 27 168 192 (161 279 lignes supprimées)
 
 #### Traitement des doublons complexes
 
-Le stockage des informations dans une base de données et une simple requête SQL montre que les doublons sont sans doute beaucoup plus nombreux. La requête suivante : 
+Le stockage dans une base de données des informations débarrassées des doublons simples et une simple requête SQL montre que les doublons sont sans doute beaucoup plus nombreux. La requête suivante : 
 
     SELECT last_name, first_name, birth_date, COUNT(*)
     FROM records
     GROUP BY last_name, first_name, birth_date 
     HAVING COUNT(*) > 1 
 
-renvoie 216 072 lignes correspondant à des personnes ayant le même nom, les mêmes prénoms et la même date de naissance. 
+renvoie encore 68 923 lignes correspondant à des personnes ayant le même nom, les mêmes prénoms et la même date de naissance. 
 
 En rajoutant un critère sur la date de décès : 
 
@@ -77,7 +77,7 @@ En rajoutant un critère sur la date de décès :
     GROUP BY last_name, first_name, birth_date, death_date
     HAVING COUNT(*) > 1 
 
-on n'obtient plus que 208 818 personnes qui pourraient être mentionnées plusieurs fois dans les fichiers (entre 2 et 40 fois). 
+on n'obtient plus que 61 422 personnes qui pourraient être mentionnées plusieurs fois dans les fichiers (entre 2 et 40 fois). 
 
 Parmi ces résultats figurent des doublons complexes: l'un des attributs change, mais la personne concernée est sans doute la même. 
 
