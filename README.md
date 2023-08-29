@@ -97,65 +97,65 @@ A ce stade les doublons complexes n'ont pas été traités.
 
 Fichier CSV INSEE | Nombre de lignes
 -------- | -----
-deces-1970.csv|27006
-deces-1971.csv|161019
-deces-1972.csv|336008
-deces-1973.csv|366040
-deces-1974.csv|380602
-deces-1975.csv|399309
-deces-1976.csv|408883
-deces-1977.csv|404774
-deces-1978.csv|421032
-deces-1979.csv|424986
-deces-1980.csv|437856
-deces-1981.csv|454544
-deces-1982.csv|453262
-deces-1983.csv|473522
-deces-1984.csv|464103
-deces-1985.csv|474631
-deces-1986.csv|476863
-deces-1987.csv|461801
-deces-1988.csv|457904
-deces-1989.csv|463081
-deces-1990.csv|546887
-deces-1991.csv|531675
-deces-1992.csv|540832
-deces-1993.csv|520434
-deces-1994.csv|561326
-deces-1995.csv|522051
-deces-1996.csv|579007
-deces-1997.csv|567668
-deces-1998.csv|461460
-deces-1999.csv|697192
-deces-2000.csv|570494
-deces-2001.csv|567111
-deces-2002.csv|549493
-deces-2003.csv|573622
-deces-2004.csv|537816
-deces-2005.csv|557035
-deces-2006.csv|535113
-deces-2007.csv|536332
-deces-2008.csv|553112
-deces-2009.csv|557241
-Deces_2010.csv|551015
-Deces_2011.csv|549115
-Deces_2012.csv|579981
-Deces_2013.csv|582618
-Deces_2014.csv|569445
-Deces_2015.csv|609627
-Deces_2016.csv|603319
-Deces_2017.csv|612926
-Deces_2018.csv|620123
-Deces_2019.csv|625372
-deces_2020.csv|679924
-Deces_2021.csv|671469
-Deces_2022.csv|683870
-Deces_2023_M01.csv|64327
-Deces_2023_M02.csv|54285
-Deces_2023_M03.csv|58944
-Deces_2023_M04.csv|50640
-Deces_2023_M05.csv|51143
-Deces_2023_M06.csv|51947
-Deces_2023_M07.csv|46254
-TOTAL|27329471
+deces-1970.csv|27 006
+deces-1971.csv|161 019
+deces-1972.csv|336 008
+deces-1973.csv|366 040
+deces-1974.csv|380 602
+deces-1975.csv|399 309
+deces-1976.csv|408 883
+deces-1977.csv|404 774
+deces-1978.csv|421 032
+deces-1979.csv|424 986
+deces-1980.csv|437 856
+deces-1981.csv|454 544
+deces-1982.csv|453 262
+deces-1983.csv|473 522
+deces-1984.csv|464 103
+deces-1985.csv|474 631
+deces-1986.csv|476 863
+deces-1987.csv|461 801
+deces-1988.csv|457 904
+deces-1989.csv|463 081
+deces-1990.csv|546 887
+deces-1991.csv|531 675
+deces-1992.csv|540 832
+deces-1993.csv|520 434
+deces-1994.csv|561 326
+deces-1995.csv|522 051
+deces-1996.csv|579 007
+deces-1997.csv|567 668
+deces-1998.csv|461 460
+deces-1999.csv|697 192
+deces-2000.csv|570 494
+deces-2001.csv|567 111
+deces-2002.csv|549 493
+deces-2003.csv|573 622
+deces-2004.csv|537 816
+deces-2005.csv|557 035
+deces-2006.csv|535 113
+deces-2007.csv|536 332
+deces-2008.csv|553 112
+deces-2009.csv|557 241
+Deces_2010.csv|551 015
+Deces_2011.csv|549 115
+Deces_2012.csv|579 981
+Deces_2013.csv|582 618
+Deces_2014.csv|569 445
+Deces_2015.csv|609 627
+Deces_2016.csv|603 319
+Deces_2017.csv|612 926
+Deces_2018.csv|620 123
+Deces_2019.csv|625 372
+deces_2020.csv|679 924
+Deces_2021.csv|671 469
+Deces_2022.csv|683 870
+Deces_2023_M01.csv|64 327
+Deces_2023_M02.csv|54 285
+Deces_2023_M03.csv|58 944
+Deces_2023_M04.csv|50 640
+Deces_2023_M05.csv|51 143
+Deces_2023_M06.csv|51 947
+Deces_2023_M07.csv|46 254
+TOTAL|27 329 471
 
