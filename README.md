@@ -1,3 +1,4 @@
+
 ## Traitement des fichiers de décès depuis 1970, fournis par l'INSEE
 
 Depuis 2019 l'INSEE met à disposition du public les fichiers des personnes décédées depuis 1970, établis à partir des informations reçues des communes dans le cadre de leur mission de service public
@@ -7,6 +8,7 @@ Voir : https://www.insee.fr/fr/information/4769950
 A fin juillet 2023 (dernier fichier pris en compte: `Deces_2023_M07.csv`), les 60 fichiers mis en ligne constituaient un total de plus de 27 millions d'enregistrements (27 329 471 lignes). 
 
 Ce projet propose un certain nombre d'outils de traitement de ces fichiers INSEE, dont la qualité est variable (doublons, qualité des informations: données manquantes ou erronées, incohérences de dates, identification des communes...)
+
 A noter que les mêmes données sont disponibles sur data.gouv.fr (https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/) dans un format différent. Ce projet utilise les fichiers proposés sur le site de l'INSEE. 
 
 ### Qualité des données : doublons 
@@ -15,6 +17,8 @@ Le nombre d'enregistrements uniques est en réalité inférieur de quelques cent
 
  - des lignes identiques (doublons simples). Certains enregistrements sont ainsi dupliqués jusqu'à 40 fois. Comme nous le verrons par la suite, ce type de doublon n'est pas toujours identifié par les principales applications qui réutilisent les données de l'INSEE, et notamment https://deces.matchid.io/. Il a été identifié plus de 160 000 lignes à supprimer. 
  - des lignes non identiques mais pour lesquelles certaines colonnes sont identiques, permettant d'affirmer qu'il s'agit de la même personne (doublons complexes)
+
+L'identification et le traitement des doublons représente un défi, au vu du volume des données manipulées. 
 
 #### Traitement des doublons simples 
 
@@ -77,7 +81,7 @@ En rajoutant un critère sur la date de décès :
     GROUP BY last_name, first_name, birth_date, death_date
     HAVING COUNT(*) > 1 
 
-on n'obtient plus que 61 422 personnes qui pourraient être mentionnées plusieurs fois dans les fichiers (entre 2 et 40 fois). 
+on n'obtient plus que 61 422 personnes qui pourraient être mentionnées plusieurs fois dans les fichiers.
 
 Parmi ces résultats figurent des doublons complexes: l'un des attributs change, mais la personne concernée est sans doute la même. 
 
@@ -87,11 +91,33 @@ L'exemple suivant montre la même personne mentionnée à la fois dans le fichie
 
     ANA EMILIA	2	1927/01/09	FIGUEIRO	99139	PORTUGAL	2010/09/06	64102	937	Deces_2012.csv-ligne 139950
 
-A ce stade les doublons complexes n'ont pas été traités. 
+Des sondages dans les fichiers de doublons complexes potentiels ont montré d'autres cas, inexpliqués, de la même personne avec deux dates (voire deux lieux) de décès différentes. Dans certains cas il pourrait s'agir de rectifications faites par les communes. 
+
+Le tableau suivant présente le nombre de doublons potentiels en fonction d'un certain nombre d'attributs identiques (même noms/prénoms et même dates de naissance et de décès, etc.) : 
+Nom/prénom|Sexe|Date naissance|Lieu naissance|Code naissance|Date décès|Code décès|Doublons potentiels
+------- | ----- | ----- | ----- | ----- | ----- | -----| -----
+X | X | X |-|-|X|-|61 777
+X | X | X |-|X|-|-|61 371
+X | X | X |-|-|X||55 439
+X | X | X |-|-|X|X|51 490
+X | X | X |-|X|X|X|45 334
+
+
+Les doublons complexes, qui représentent au maximum 0,25% des données, n'ont pas fait l'objet d'un quelconque traitement pour les supprimer. Ils devraient être traités par un algorithme d'appariement (*matching*), afin d'apporter de la transparence à l'utilisateur. 
 
 ### Qualité des données : champs manquants ou de mauvaise qualité
 
+#### Commune de naissance 
+La commune de naissance n'est pas toujours connue. Dans ce cas elle est renseignée comme "COMMUNE FICTIVE" avec un code commençant par le numéro de département et se terminant par "990".
+
+#### Codification des communes 
 (TBD)
+
+#### Dates invalides
+Certaines dates comportent moins de 8 caractères. 
+
+#### Incohérences de dates 
+Un certain nombre de dates de décès sont antérieures à la date de naissance. 
 
  ### Annexe
 
@@ -158,4 +184,3 @@ Deces_2023_M05.csv|51 143|0
 Deces_2023_M06.csv|51 947|0
 Deces_2023_M07.csv|46 254|0
 TOTAL|27 329 471|120 333
-
